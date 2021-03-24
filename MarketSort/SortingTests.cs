@@ -28,7 +28,7 @@ namespace MarketSort
         public void Sort(string[] values, string[] expected)
         {
             values = values
-                .GroupBy(x => x.Split('-').All(y => int.TryParse(y, out _)))
+                .GroupBy(x => x.Last() != '-' && x.Split('-').All(y => int.TryParse(y, out _)))
                 .OrderBy(x => x.Key)
                 .SelectMany(x => (x.Key
                     ? x
