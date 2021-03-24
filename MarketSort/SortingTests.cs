@@ -36,8 +36,7 @@ namespace MarketSort
                         .OrderBy(y => y.c.First()).ThenBy(y => y.c.Skip(1).First())
                         .Select(x => x.n)
                     : x
-                        .OrderBy(y => y))
-                    .Select(y => y))
+                        .OrderBy(y => y)))
                 .ToArray();
 
             output.WriteLine(string.Join(",", expected));
