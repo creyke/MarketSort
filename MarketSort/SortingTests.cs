@@ -33,7 +33,8 @@ namespace MarketSort
                 .SelectMany(x => x.Key
                     ? x
                         .Select(y => (n: y, c: y.Split('-').Select(z => int.Parse(z))))
-                        .OrderBy(y => y.c.First()).ThenBy(y => y.c.ElementAt(1))
+                        .OrderBy(y => y.c.First())
+                        .ThenBy(y => y.c.ElementAt(1))
                         .Select(x => x.n)
                     : x
                         .OrderBy(y => y))
