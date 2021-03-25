@@ -30,13 +30,13 @@ namespace MarketSort
             values = values
                 .GroupBy(x => x.Last() != '-' && x.Split('-').All(y => int.TryParse(y, out _)))
                 .OrderBy(x => x.Key)
-                .SelectMany(x => (x.Key
+                .SelectMany(x => x.Key
                     ? x
                         .Select(y => (n: y, c: y.Split('-').Select(z => int.Parse(z))))
                         .OrderBy(y => y.c.First()).ThenBy(y => y.c.ElementAt(1))
                         .Select(x => x.n)
                     : x
-                        .OrderBy(y => y)))
+                        .OrderBy(y => y))
                 .ToArray();
 
             output.WriteLine(string.Join(",", expected));
